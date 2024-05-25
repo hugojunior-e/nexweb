@@ -1,0 +1,5 @@
+.widget .edit {background:url(imagenes/bot_edi_pt.png) no-repeat;}
+
+#wmenu .edit {float:right; margin:5px 10px 5px 10px; background:url(imagenes/bot_edi_pt.png) no-repeat; width:42px; height:19px;}
+
+#wrecomendaciones .masinfo{float:right; background:url(imagenes/bot_mas_inf_pt.jpg) no-repeat; width:134px; height:124px; max-height:124px; line-height:124px;}

@@ -1,0 +1,364 @@
+body{
+	font: 11px Arial, Helvetica, sans-serif;
+	display:block;	
+	margin: 0px;;
+	display: block;
+	overflow-x:hidden;
+	background-color:#FFFFFF;
+	padding: 0;
+	margin: 0;	
+}
+
+
+table {
+	font: 13px Helvetica, sans-serif;
+}
+
+.table2 {
+font:bold 13px Arial;
+	color:#333333;
+	cursor:pointer;
+}
+
+img {
+	border: none;
+}
+a:link{
+	text-decoration: none;
+}
+a:visited{
+	text-decoration: none;
+}
+
+
+.grid tr:hover {
+background-color:#E0E6FF;
+}
+
+.table_filtro {
+  background-color:#EBEBEB;
+}
+
+
+.caixasDialogo{
+  background-image:url(imgs/barra_azul.jpg);
+  color:#000000;
+  font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-size:13px;
+  font-weight:bold;
+  text-align:center;
+}
+
+.tituloCampos{
+  font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.divcss {
+	position:absolute;
+	z-index:1000;
+	background-color:#FFF;
+	background-image:url(imgs/backdrop.png);
+	border-width:3px;
+	border-color:#739eff;
+	-moz-border-radius:11px;
+	-webkit-border-radius:11px;
+	border-radius:11px;
+	-moz-box-shadow:0px 0px 11px 5px #317e87;
+	-webkit-box-shadow:0px 0px 11px 5px #317e87;
+	box-shadow:0px 0px 11px 5px #317e87;
+}
+
+.divcss2 {
+	background-color:#FFF;
+	background-image:url(imgs/backdrop.png);
+	-moz-border-radius:11px;
+	-webkit-border-radius:11px;
+}
+
+
+.tela_fundo {
+	z-index: 500;
+	position:absolute;
+	opacity: 0.60;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+/*------------------------------------------------------------------------------------*/
+/* CSS DA TREEVIEW */
+/*------------------------------------------------------------------------------------*/
+
+
+.tree {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	padding: 10px;
+	white-space: nowrap;
+}
+.tree img {
+	border: 0px;
+	height: 18px;
+	vertical-align: text-bottom;
+}
+.tree a {
+	color: #000;
+	text-decoration: none;
+}
+.tree a:hover {
+	color: #345373;
+}
+
+/*------------------------------------------------------------------------------------*/
+/* TABS DE NOTAS */
+/*------------------------------------------------------------------------------------*/
+
+
+
+.TabbedPanels {
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	clear: none;
+}
+
+
+.TabbedPanelsTabGroup {
+	margin: 0px;
+	padding: 0px;
+}
+
+.TabbedPanelsTab {
+	position: relative;
+	top: 1px;
+	float: left;
+	padding: 0px 10px;
+	margin: 0px 1px 0px 0px;
+	font: bold 1em sans-serif;
+	background-color: #DDD;
+	list-style: none;
+	border-left: solid 1px #CCC;
+	border-bottom: solid 1px #999;
+	border-top: solid 1px #999;
+	border-right: solid 1px #999;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	cursor: pointer;
+}
+
+.TabbedPanelsTabHover {
+	background-color: #CCC;
+}
+
+.TabbedPanelsTabSelected {
+	background-color: #EEE;
+	border-bottom: 1px solid #EEE;
+}
+
+.TabbedPanelsTab a {
+	color: black;
+	text-decoration: none;
+}
+
+.TabbedPanelsContentGroup {
+	clear: both;
+	border-left: solid 1px #CCC;
+	border-bottom: solid 1px #CCC;
+	border-top: solid 1px #999;
+	border-right: solid 1px #999;
+}
+
+.TabbedPanelsContent {
+	padding: 2px;
+}
+
+.TabbedPanelsContentVisible {
+}
+
+.VTabbedPanels .TabbedPanelsTabGroup {
+	float: left;
+	width: 10em;
+	height: 20em;
+	background-color: #EEE;
+	position: relative;
+	border-top: solid 1px #999;
+	border-right: solid 1px #999;
+	border-left: solid 1px #CCC;
+	border-bottom: solid 1px #CCC;
+}
+
+.VTabbedPanels .TabbedPanelsTab {
+	float: none;
+	margin: 0px;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+}
+
+.VTabbedPanels .TabbedPanelsTabSelected {
+	background-color: #EEE;
+	border-bottom: solid 1px #999;
+}
+
+.VTabbedPanels .TabbedPanelsContentGroup {
+	clear: none;
+	float: left;
+	padding: 0px;
+	width: 30em;
+	height: 20em;
+}
+
+
+/*------------------------------------------------------------------------------------*/
+/*CSS DO MENU PRINCIPAL*/
+/*------------------------------------------------------------------------------------*/
+
+ul#css3menu1, ul#css3menu1 ul {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+ul#css3menu1 {/*Menu principal - caixa*/
+	width:100%;
+	height:28px;
+}
+ul#css3menu1 a {/*Menu principal - atalhos*/
+	display:block;
+	vertical-align:middle;
+	text-align:left;
+	text-decoration:none;
+	font:bold 13px Arial;
+	color:#333333;
+	cursor:pointer;
+	padding:8px 8px;
+ background-color:;
+	background-repeat:repeat;
+	border-width:0px;
+	border-style:none;
+}
+ul#css3menu1 li.topmenu>a {
+	height:12px;
+	line-height:12px;
+}
+ul#css3menu1 .submenu {/*Sub menu - caixa*/
+	display:none;
+	position:absolute;
+	left:0;
+	top:100%;
+	float:left;
+	background-color:#fff;
+	border:solid 6px rgba(206, 206, 206, .5);
+	border-radius:7px;
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	padding:0 6px 6px;
+}
+ul#css3menu1 ul a {/*Sub menu - atalhos*/
+	text-align:left;
+	padding:4px;
+	background-color:#fff;
+	background-image:none;
+	border-bottom:1px solid #EFEFEF;
+	font:11px Trebuchet MS, sans-serif;
+	letter-spacing:0;
+	color:#000;
+	text-decoration:none;
+	text-shadow:#FFF 0 0 0;
+}
+ul#css3menu1 li:hover>* {
+	display:block;
+}
+ul#css3menu1 li:hover {
+	position:relative;
+}
+ul#css3menu1 ul .submenu {
+	position:absolute;
+	left:100%;
+	top:0;
+}
+ul#css3menu1 {
+	display:block;
+	font-size:0;
+	float:left;
+}
+ul#css3menu1 ul {
+	padding:0 5px 5px;
+}
+ul#css3menu1 .column {
+	background-color:#FFFFFF;
+	float:left;
+}
+ul#css3menu1 li {
+	display:block;
+	white-space:nowrap;
+	font-size:0;
+	float:left;
+}
+ul#css3menu1>li, ul#css3menu1 li {
+	margin:0 0 0 5px;
+}
+ul#css3menu1 ul>li {
+	margin:5px 0 0;
+}
+ul#css3menu1 a:active, ul#css3menu1 a:focus {
+	outline-style:none;
+}
+ul#css3menu1 ul li {
+	float:none;
+	margin:2px 0 0;
+}
+ul#css3menu1 ul li a {
+	border-left:#fff solid 3px;
+}
+ul#css3menu1 li:hover>a {
+	border-style:none;
+	color:#0033FF;
+	text-decoration:none;
+}
+ul#css3menu1 img {
+	border:none;
+	vertical-align:middle;
+	margin-right:8px;
+}
+ul#css3menu1 img.over {
+	display:none;
+}
+ul#css3menu1 li:hover > a img.def {
+	display:none;
+}
+ul#css3menu1 li:hover > a img.over {
+	display:inline;
+}
+ul#css3menu1 span {
+	display:block;
+	overflow:visible;
+	background-position:right center;
+	background-repeat:no-repeat;
+	padding-right:0px;
+}
+ul#css3menu1 ul span {
+	background-image:url("imgs/arrowsub.png");
+	padding-right:5px;
+}
+ul#css3menu1 ul li:hover>a {
+	background-color:#fff;
+	background-image:none;
+	border-left:solid #0033FF 3px;
+	border-bottom:1px solid #EFEFEF;
+	font:11px Trebuchet MS, sans-serif;
+	color:#0033FF;
+	text-decoration:none;
+}
+ul#css3menu1 .image a {
+	border:#fff solid 1px;
+}
+ul#css3menu1 .image a:hover {
+	background-color:#F9F9F9;
+	border:#cecece solid 1px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}

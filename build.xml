@@ -1,0 +1,136 @@
+<project name="nex_j" default="all" basedir=".">
+
+	<property file="build.properties" />
+
+	<property name="build.home" value="${basedir}/build" />
+	<property name="dist.home" value="${basedir}/dist" />
+	<property name="docs.home" value="${basedir}/docs" />
+	<property name="src.home" value="${basedir}/src" />
+	<property name="web.home" value="${basedir}/web" />
+	<property name="compile.debug" value="true" />
+	<property name="compile.deprecation" value="false" />
+	<property name="compile.optimize" value="true" />
+
+	<!-- Classpath p/ compilacao -->
+
+	<path id="compile.classpath">
+
+		<!-- Inclui todos os elementos que o Tomcat expoe a aplicacao -->
+		<fileset dir="${jboss.home}/lib/endorsed">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${jboss.home}/lib">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${jboss.home}/server/all/lib">
+			<include name="*.jar" />
+		</fileset>						
+		<fileset dir="${web.home}/WEB-INF/lib">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+	<!-- TARGET: all -->
+
+	<target name="all" depends="clean,compile,undeploy, deploy" description="Exclui as pastas dist e build e depois executa o target compile" />
+
+	<!-- TARGET: clean -->
+
+	<target name="clean" description="Exclui as pastas dist e build">
+		<delete dir="${build.home}" failonerror="false" />
+		<delete dir="${dist.home}" />
+	</target>
+
+	<!-- TARGET: set-web-xml -->
+
+	<target name="set-web-xml" unless="webXML" description="Seta o arquivo das configuracoes web do projeto">
+		<property name="webXML" value="web.xml" />
+	</target>
+
+	<!-- TARGET: prepare 
+
+	O "target" prepare e utilizado para criar o subdiretorio "build" e para
+	copiar todo o conteudo estatico do subdiretorio "web" para la.
+	Se necessario, copia outros arquivos dos quais a aplicacao venha a depender
+	para as pastas adequadas.
+
+-->
+
+	<target name="prepare" depends="set-web-xml">
+		<!-- Cria os diretorios -->
+		<mkdir dir="${build.home}" />
+		<mkdir dir="${build.home}/WEB-INF" />
+		<mkdir dir="${build.home}/WEB-INF/classes" />
+		<mkdir dir="${build.home}/META-INF" />
+		<!-- Copia o conteudo estatico da aplicacao web -->
+		<copy todir="${build.home}">
+			<fileset dir="${web.home}">
+				<exclude name="WEB-INF/web*.xml" />
+			</fileset>
+		</copy>
+		<copy file="${web.home}/WEB-INF/${webXML}" tofile="${build.home}/WEB-INF/web.xml" overwrite="true" />
+	</target>
+
+	<!-- TARGET: compile -->
+
+	<target name="compile" depends="prepare" description="Compila os arquivos fonte Java">
+		<!-- Compila as classes Java -->
+		<mkdir dir="${build.home}/WEB-INF/classes" />
+		<javac srcdir="${src.home}" destdir="${build.home}/WEB-INF/classes" debug="${compile.debug}" deprecation="${compile.deprecation}" optimize="${compile.optimize}" fork="true">
+			<classpath refid="compile.classpath" />
+		</javac>
+		<!-- Copia os recursos relacionados excluindo os .java -->
+		<copy todir="${build.home}/WEB-INF/classes">
+			<fileset dir="${src.home}" excludes="**/*.java" />
+		</copy>
+	</target>
+
+	<!-- TARGET: Dist -->
+
+	<target name="dist" depends="compile" description="Gera uma distribuicao do aplicativo">
+		<!-- Cria o "WAR File" da aplicacao -->
+		<jar jarfile="${dist.home}/${app.name}.war" basedir="${build.home}" />
+	</target>
+
+	<!-- TARGET: javadoc -->
+
+	<target name="javadoc" depends="compile" description="Create Javadoc API documentation">
+		<mkdir dir="${dist.home}/docs/api" />
+		<javadoc sourcepath="${src.home}" destdir="${dist.home}/docs/api" packagenames="*">
+			<classpath refid="compile.classpath" />
+		</javadoc>
+	</target>
+	
+	<!-- TARGET: deploy.exploded -->
+
+	<target name="deploy.exploded" depends="dist" description="Instala remotamente uma aplicacao cujo WAR File ja tenha sido criado">
+        <copy verbose="true" todir="${jboss.home}/server/default/deploy/${app.name}.war">
+            <fileset dir="${build.home}"/>
+        </copy>
+	</target>
+
+	<!-- TARGET: deploy -->
+
+	<target name="deploy" depends="dist" description="Instala remotamente uma aplicacao cujo WAR File ja tenha sido criado">
+        <copy verbose="true" todir="${jboss.home}/server/default/deploy/">
+            <fileset file="${dist.home}/${app.name}.war"/>
+        </copy>
+	</target>
+	
+	<!-- TARGET: copy.modified.files.web -->
+
+	<target name="copy.modified.files.web" description="Instala remotamente uma aplicacao cujo WAR File ja tenha sido criado">
+        <copy verbose="true" todir="${jboss.home}/server/default/deploy${app.name}.war" overwrite="false">
+            <fileset dir="${web.home}"/>
+        </copy>
+	</target>
+
+	<!-- TARGET: undeploy -->
+
+	<target name="undeploy" description="Remove uma aplicacao previamente instalada, excluindo todos os arquivos do servidor">
+		<delete dir="${jboss.home}/server/default/deploy/${app.name}" />
+		<delete dir="${jbossa.home}/server/default/deploy/${app.name}.war" />
+		<delete file="${jboss.home}/server/default/deploy/${app.name}.war" />
+	</target>
+
+</project>

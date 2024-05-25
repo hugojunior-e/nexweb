@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC
+    "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN"
+    "http://getahead.org/dwr/dwr20.dtd">
+
+<dwr>
+	<allow>
+		<create creator="new" javascript="USinopse" scope="session">
+			<param name="class" value="nexcabo.USinopse" />
+		</create>
+
+		<create creator="new" javascript="UOpcoesGerais" scope="session">
+			<param name="class" value="nexcabo.UOpcoesGerais" />
+		</create>
+
+		<create creator="new" javascript="UUtils" scope="session">
+			<param name="class" value="nexcabo.UUtils" />
+		</create>
+
+		<create creator="new" javascript="UCanais" scope="session">
+			<param name="class" value="nexcabo.UCanais" />
+		</create>
+
+		<create creator="new" javascript="InserirProgramacoes" scope="session">
+			<param name="class" value="nexcabo.InserirProgramacoes" />
+		</create>
+
+		<create creator="new" javascript="SincronizarCanais" scope="session">
+			<param name="class" value="nexcabo.SincronizarCanais" />
+		</create>
+
+
+		<create creator="new" javascript="UValidarUsuario" scope="session">
+			<param name="class" value="nexcabo.UValidarUsuario" />
+		</create>
+
+		<create creator="new" javascript="TvWeb" scope="session">
+			<param name="class" value="nexcabo.TvWeb" />
+		</create>
+		
+		<create creator="new" javascript="uploadProxy">
+			<param name="class" value="upload.UploadProxy" />
+		</create>
+		
+		<convert converter="bean" match="upload.UploadStatus"/>
+
+	</allow>
+</dwr>
+
